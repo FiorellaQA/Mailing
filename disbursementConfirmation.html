@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tbody>
+      <tr><!--fila-->
+        <td style="background-color:#eaeaea;" valign="top" bgcolor="#ffffff" align="center"><!--columna-->
+          <br>
+          <br>
+          <table cellspacing="0" cellpadding="0" width="600" border="0">
+            <tbody>
+              <tr>
+                <td style="background-color:#ffffff;" valign="top" align="center">
+                  <table style="padding-left:40px;padding-right:40px;" cellspacing="0" cellpadding="0" width="100%" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="font-family:'Oswald', sans-serif;color:#191E25; font-weight: 500;font-size:24px;" valign="middle" align="left">
+                          <br>
+                          <i>Hola ${exchange.properties.payload.variables.firstName},</i>
+                          <br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <br>
+                          <p style="font-family:'Oswald', sans-serif; color:#191E25; font-size:24px;" valign="middle" align="center">
+                            <i style="font-weight: 500;">¡FELICITACIONES!</i>
+                            <br>
+                            <i style="font-weight: 500;">Bienvenido a la Comunidad</i>
+                            <i style="font-weight: 500;">INDEPENDENCIA</i>
+                          </p>
+                        </td>
+                      </tr>
+                    <#if exchange.properties.payload.variables.approvedPartnerCode?matches('COMPRA-DEUDA.?')>
+                      <br>
+                      <tr>
+                        <td style="font-family: 'Roboto', sans-serif;color:#191E25; font-size:15px;" valign="middle" align="left">
+                          <br>
+                          Tu solicitud #${exchange.properties.payload.variables.applicationId} ha sido desembolsada el ${exchange.properties.payload.variables.disbursementDate}. Adjuntamos tu Contrato y Hoja Resumen que incluye tu cronograma de pagos.
+                          <br>
+                          <br>
+                        </td>
+                      </tr>
+                    <#else>
+                      <tr>
+                        <td style="font-family: 'Roboto', sans-serif;color:#191E25; font-size:15px;" valign="middle" align="left">
+                          <br>
+                          Tu pr&eacute;stamo “${exchange.properties.payload.variables.productTypeDesc}” INDEPENDENCIA #${exchange.properties.payload.variables.applicationId} ha sido desembolsado el ${exchange.properties.payload.variables.disbursementDate} en tu cuenta #${exchange.properties.payload.variables.accountNumber} del ${exchange.properties.payload.variables.bankName}. Adjuntamos tu Contrato y Hoja Resumen que incluye tu cronograma de pagos.
+                          <br>
+                          <br>
+                        </td>
+                      </tr>
+                    </#if>
+                      <tr>
+                        <td style="font-family: 'Roboto', sans-serif;color:#191E25; font-size:15px;" valign="middle" align="left">
+                          <br>
+                          Recuerda que puedes pagar tu pr&eacute;stamo en cualquiera de los siguientes canales:
+                          <br>
+                          <br>
+                        </td>
+                      </tr>
+                    <!-- Table -->
+                      <table style='border:2px dashed #9E9E9E; width: 100%; margin: 0 auto;' cellspacing="0">
+                        <tr style="background-color: #eaeaea57;">
+                          <td style="text-align:left; font-family:'Roboto', sans-serif; color:#191E25; font-size:15px;" valign="middle" align="justify">
+                            <!--
+                            <img moz-do-not-send="false" src="cid:logo-inpependencia.png" alt="" height="100" width="232">
+                            -->
+                            <img style="padding: 4px;" moz-do-not-send="false" src="logo-independencia-color.png" alt="" height="50" width="60">
+                          </td>
+                          <!--
+                          <td style="font-family:'Roboto', sans-serif; color:#191E25; font-size:15px;">
+                            <b style='padding:10px; text-align: left;'>Lorem ipsum, lorem ipsum</b>
+                          </td>
+                          -->
+                        </tr>
+                        <tr style="height: 200px;">
+                          <td style="border:1px solid #9E9E9E; border-left-style:hidden; border-right-style:hidden; text-align:center; font-family:'Roboto', sans-serif; color:#191E25; font-size:15px;">
+                            <b>Monto</b><p>S/. 10,000.00</p>
+                            <br>
+                            <b>En viajes y paquetes turísticos.</b>
+                          </td>
+                          <!--
+                          <td style="border:1px solid black; border-right-style:hidden; font-family:'Roboto', sans-serif; color:#191E25; font-size:15px;">
+                            <p style='padding:10px; text-align: left;'>
+                              Una vez que ingresas con tu usuario, vas a la sección<b>PAGOS DE SEVICIOS</b>.
+                              <br/>
+                              Selecciona<b>INSTITUCIONES Y EMPRESAS</b>y buscas por el nombre de<b>INDEPENDENCIA</b>
+                              <br>
+                            </p>
+                          </td>
+                          -->
+                        </tr>
+                        <tr style="background-color: #eaeaea57;">
+                          <td style="text-align: left; font-family:'Roboto', sans-serif; color:#191E25; padding: 10px;">
+                            <p style="font-size: 15px; margin: 3px 0;"><b>Código de Autorización: </b>[Variable-código]</p>
+                            <p style="font-size:13px; margin: 3px 0; color:red;"><b>Expira: </b>[Variable-fecha]</p>
+                          </td>
+                          <!--
+                          <td style="font-family:'Roboto', sans-serif; color:#191E25; font-size:15px;">
+                            <p style='padding:10px; text-align: left;'>Indica en la ventanilla de atención que vas a pagar tu cuota en Soles a la <b>Cuenta Recaudadora de INDEPENDENCIA</b>.
+                              <br/>
+                              El c&oacute;digo para el pago es tu n&uacute;mero de DNI y debes dar tu nombre completo.
+                            </p>
+                          </td>
+                          -->
+                        </tr>
+                      </table>
+
+                    <!-- End table -->
+                      <table>
+                        <tbody>
+                          <tr style="background-color:#ffffff;">
+                            <td style="font-family: 'Roboto', sans-serif; color:#191E25; font-size:15px;" valign="middle" align="center">
+                              <br>
+                              Tambien nos puedes seguir en nuestro fanpage para que puedas enterarte de nuestras novedades en los proximos meses
+                              <br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="font-family:'Oswald', sans-serif;color:#191E25; font-weight: 500;font-size:25px;" valign="middle" align="center">
+                              <a href="https://www.facebook.com/independenciaprestamos/">
+                                <img moz-do-not-send="false" src="cid:facebook.png" alt="" height="100" width="232">
+                              </a>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="font-family:'Oswald', sans-serif;color:#191E25; font-weight: 500;font-size:25px;" valign="middle" align="center">
+                              <br>
+                              <i>¡¡¡ Gracias por confiar en nosotros !!!</i>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="font-family: 'Roboto', sans-serif; color:#191E25; font-size:15px;" valign="middle" align="center">
+                              <br>
+                              Cualquier duda o consulta estamos a tu entera disposici&oacute;n, los datos para contacto son:
+                              <br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="font-family: 'Roboto', sans-serif; color:#191E25; font-size:15px; text-align: center;">
+                              <p>Tel&eacute;fono: 999-932-923 / (01) 289-0900
+                                <br>
+                                Correo: atencion@independencia.com.pe
+                              </p>
+                              <p>Atenci&oacute;n al Cliente
+                                <br>
+                                Independencia Asesores S.G.F.I. S.A.C.
+                                <br>
+                                en representacion del Fondo Independencia I
+                                <br>
+                                Av. Jos&eacute; Larco 1301, Oficina 2101, Torre Parque Mar
+                                <br>
+                                Miraflores, Lima 18
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="font-family: 'Roboto', sans-serif; color:#191E25; font-size:15px; text-align: center; padding: 12px;">
+                              <p>Por favor, no respondas a este correo.</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <tr>
+                        <td style="font-family: 'Roboto', sans-serif;color: grey; font-size:15px;" valign="middle" align="justify">
+                          <br>
+                          <span style="font-size:9px;">
+                            Si este correo omite vocales, tildes, letras &ntilde; o &eacute;stas son cambiadas por otros caracteres, no se debe a errores ortogr&aacute;ficos de INDEPENDENCIA ASESORES S.G.F.I. S.A.C. en representaci&oacute;n del Fondo Independencia I. Esto puede originarse por la configuraci&oacute;n del servidor de tu correo o la versi&oacute;n de tu navegador. El sistema de correo electr&oacute;nico del INDEPENDENCIA ASESORES S.G.F.I. S.A.C. est&aacute; destinado &uacute;nicamente para fines de negocio, cualquier otro uso contraviene las pol&iacute;ticas de LA EMPRESA. Toda la informaci&oacute;n del negocio contenida en este mensaje es confidencial y de uso exclusivo de INDEPENDENCIA ASESORES S.G.F.I. S.A.C. Su divulgaci&oacute;n, copia y/o adulteraci&oacute;n est&aacute;n prohibidas y solo debe ser conocida por la persona a quien se dirige este mensaje. Esta informaci&oacute;n se env&iacute;a de acuerdo a la legislaci&oacute;n correo electr&oacute;nico comercial no solicitado - SPAM seg&uacute;n Leyes 28493.
+                          </span>
+                          <br>
+                          <br>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+              <tr>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+
+
+
+
+
